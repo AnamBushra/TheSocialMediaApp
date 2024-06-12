@@ -16,7 +16,7 @@ export default function Feed() {
             <Share/>
             {/*posts.map((p)=>(
  <Post key={p.id} post={p}/>
-            ))*//*} 
+            ))*/ /*} 
            
           
         </div>
@@ -39,8 +39,14 @@ export default function Feed({ username }) {
     const fetchPosts = async () => {
       console.log(username);
       const res = username
-        ? await axios.get("http://localhost:8800/api/posts/profile/" + username._id)
-        : await axios.get("http://localhost:8800/api/posts/timeline/" + username._id);
+        ? await axios.get(
+            "https://friendszone-31og.onrender.com/api/posts/profile/" +
+              username._id
+          )
+        : await axios.get(
+            "https://friendszone-31og.onrender.com/api/posts/timeline/" +
+              username._id
+          );
       setPosts(
         res.data.sort((p1, p2) => {
           return new Date(p2.createdAt) - new Date(p1.createdAt);
@@ -53,7 +59,9 @@ export default function Feed({ username }) {
   return (
     <div className="feed">
       <div className="feedWrapper">
-        {(!username.username || username.username === user.username) && <Share />}
+        {(!username.username || username.username === user.username) && (
+          <Share />
+        )}
         {posts.map((p) => (
           <Post key={p._id} post={p} />
         ))}
@@ -61,4 +69,3 @@ export default function Feed({ username }) {
     </div>
   );
 }
-

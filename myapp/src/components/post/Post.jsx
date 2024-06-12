@@ -11,9 +11,9 @@ export default function Post({post}) {
     setIsLiked(!isLiked)
    }*/
 
-   import "./post.css";
+import "./post.css";
 //import { MoreVert } from "@material-ui/icons";
-import { MoreVert ,ThumbUp,Favorite} from "@mui/icons-material"
+import { MoreVert, ThumbUp, Favorite } from "@mui/icons-material";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { format } from "timeago.js";
@@ -33,55 +33,64 @@ export default function Post({ post }) {
 
   useEffect(() => {
     const fetchUser = async () => {
-      console.log(post)
-      const res = await axios.get("http://localhost:8800/api/users/"+post.userId);
+      console.log(post);
+      const res = await axios.get(
+        "https://friendszone-31og.onrender.com/api/users/" + post.userId
+      );
       setUser(res.data);
     };
-    fetchUser(); 
+    fetchUser();
   }, [post.userId]);
 
   const likeHandler = () => {
     try {
-      axios.put("http://localhost:8800/api/posts/" + post._id + "/like", { userId: currentUser._id });
+      axios.put(
+        "https://friendszone-31og.onrender.com/api/posts/" + post._id + "/like",
+        { userId: currentUser._id }
+      );
     } catch (err) {}
     setLike(isLiked ? like - 1 : like + 1);
     setIsLiked(!isLiked);
   };
   return (
     <div className="post">
-        <div className="postWrapper">
-             <div className="postTop">
-                <div className="postTopLeft">
-                  <Link to={`profile/${user.username}`}>
-                  <img src={user.profilePicture || PF+"persons/noavatar.png"} alt="" className="postProfileImg" />
-                  </Link>
-                    
-                    <div className="postUsername">{user.username}</div>
-                    <div className="postDate">{format(post.createdAt)}</div>
-                </div>
-                <div className="postTopRight">
-                 {/* <MoreVert/> */}
-                </div>
-             </div>
-             <div className="postCenter">
-                <span className="postText">{post?.desc}</span>
-                <img className="postImg" src={PF+post.img} alt="" />
-             </div>
-             <div className="postBottom">
-                <div className="postBottomLeft">
-                  <button className="likeIcon" onClick={likeHandler}>{isLiked?"Unlike" : "Like"}</button>
-                    {/* <ThumbUp className="likeIcon" htmlColor="blue" onClick={likeHandler} /> */}
-                    {/* <Favorite className="likeIcon" htmlColor="red" onClick={likeHandler}/> */}
-                    <span className="postLikeCounter">{like}</span>
-                </div>
-                <div className="postBottomRight">
-                    <span className="postCommentText">{post.comment}</span>
-                </div>
-             </div>  </div>
-             <div/>
-            
-             <div/>
+      <div className="postWrapper">
+        <div className="postTop">
+          <div className="postTopLeft">
+            <Link to={`profile/${user.username}`}>
+              <img
+                src={user.profilePicture || PF + "persons/noavatar.png"}
+                alt=""
+                className="postProfileImg"
+              />
+            </Link>
+
+            <div className="postUsername">{user.username}</div>
+            <div className="postDate">{format(post.createdAt)}</div>
+          </div>
+          <div className="postTopRight">{/* <MoreVert/> */}</div>
+        </div>
+        <div className="postCenter">
+          <span className="postText">{post?.desc}</span>
+          <img className="postImg" src={PF + post.img} alt="" />
+        </div>
+        <div className="postBottom">
+          <div className="postBottomLeft">
+            <button className="likeIcon" onClick={likeHandler}>
+              {isLiked ? "Unlike" : "Like"}
+            </button>
+            {/* <ThumbUp className="likeIcon" htmlColor="blue" onClick={likeHandler} /> */}
+            {/* <Favorite className="likeIcon" htmlColor="red" onClick={likeHandler}/> */}
+            <span className="postLikeCounter">{like}</span>
+          </div>
+          <div className="postBottomRight">
+            <span className="postCommentText">{post.comment}</span>
+          </div>
+        </div>{" "}
+      </div>
+      <div />
+
+      <div />
     </div>
-    
-  )
+  );
 }

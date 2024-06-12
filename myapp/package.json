@@ -38,5 +38,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:8800/backend"
+  "proxy": "https://friendszone-31og.onrender.com/backend"
 }
