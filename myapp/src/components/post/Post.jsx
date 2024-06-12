@@ -1,19 +1,4 @@
-/*import "./post.css"
-
-//import { Users } from "../../dummyData"
-import { useState } from "react"
-export default function Post({post}) { 
-  const [like,setLike]=useState(post.like)
-  const [isLiked,setIsLiked]=useState(false)
-  const PF=process.env.REACT_APP_PUBLIC_FOLDER;
-   const likeHandler=()=>{
-    setLike(isLiked ? like-1 : like+1)
-    setIsLiked(!isLiked)
-   }*/
-
 import "./post.css";
-//import { MoreVert } from "@material-ui/icons";
-import { MoreVert, ThumbUp, Favorite } from "@mui/icons-material";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { format } from "timeago.js";

@@ -1,7 +1,6 @@
 import { useContext, useRef, useState } from "react";
 import "./share.css";
 import { AuthContext } from "../../context/AuthContext";
-// import { PermMedia,Sell ,LocationOn,Mood, Cancel} from "@mui/icons-material"
 import axios from "axios";
 export default function Share() {
   const { user } = useContext(AuthContext);
