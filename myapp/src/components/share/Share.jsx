@@ -23,14 +23,14 @@ export default function Share() {
       newPost.img = fileName;
       try {
         await axios.post(
-          "https://friendszone-31og.onrender.com/api/upload",
+          "https://friendszone-04cf.onrender.com/api/upload",
           data
         );
       } catch (err) {}
     }
     try {
       await axios.post(
-        "https://friendszone-31og.onrender.com/api/posts",
+        "https://friendszone-04cf.onrender.com/api/posts",
         newPost
       );
       window.location.reload();

@@ -40,11 +40,11 @@ export default function Feed({ username }) {
       console.log(username);
       const res = username
         ? await axios.get(
-            "https://friendszone-31og.onrender.com/api/posts/profile/" +
+            "https://friendszone-04cf.onrender.com/api/posts/profile/" +
               username._id
           )
         : await axios.get(
-            "https://friendszone-31og.onrender.com/api/posts/timeline/" +
+            "https://friendszone-04cf.onrender.com/api/posts/timeline/" +
               username._id
           );
       setPosts(

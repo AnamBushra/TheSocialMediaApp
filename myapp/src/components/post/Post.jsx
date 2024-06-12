@@ -35,7 +35,7 @@ export default function Post({ post }) {
     const fetchUser = async () => {
       console.log(post);
       const res = await axios.get(
-        "https://friendszone-31og.onrender.com/api/users/" + post.userId
+        "https://friendszone-04cf.onrender.com/api/users/" + post.userId
       );
       setUser(res.data);
     };
@@ -45,7 +45,7 @@ export default function Post({ post }) {
   const likeHandler = () => {
     try {
       axios.put(
-        "https://friendszone-31og.onrender.com/api/posts/" + post._id + "/like",
+        "https://friendszone-04cf.onrender.com/api/posts/" + post._id + "/like",
         { userId: currentUser._id }
       );
     } catch (err) {}

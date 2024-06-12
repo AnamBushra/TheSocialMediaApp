@@ -15,7 +15,7 @@ export const AuthContextProvider = ({ children }) => {
 
   // const logout = async (inputs) => {
 
-  //   const res = await axios.post("https://friendszone-31og.onrender.com/api/auth/logout");
+  //   const res = await axios.post("https://friendszone-04cf.onrender.com/api/auth/logout");
   //   setCurrentUser(res.data);
   // };
   useEffect(() => {

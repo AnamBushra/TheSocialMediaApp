@@ -25,7 +25,7 @@ export default function Register() {
       try {
         history("/login");
         await axios.post(
-          "https://friendszone-31og.onrender.com/api/auth/register",
+          "https://friendszone-04cf.onrender.com/api/auth/register",
           user
         );
       } catch (err) {

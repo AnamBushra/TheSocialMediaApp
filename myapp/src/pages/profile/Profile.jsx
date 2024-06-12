@@ -18,7 +18,7 @@ export default function Profile() {
   useEffect(() => {
     const fetchUser = async () => {
       const res = await axios.get(
-        "https://friendszone-31og.onrender.com/api/users/" + username
+        "https://friendszone-04cf.onrender.com/api/users/" + username
       );
       setUser(res.data);
     };

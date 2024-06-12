@@ -19,7 +19,7 @@ export default function Rightbar({ user }) {
     const getFriends = async () => {
       try {
         const friendList = await axios.get(
-          "https://friendszone-31og.onrender.com/api/users/friends/" + user._id
+          "https://friendszone-04cf.onrender.com/api/users/friends/" + user._id
         );
         setFriends(friendList.data);
         //  console.log(friendList);
@@ -34,7 +34,7 @@ export default function Rightbar({ user }) {
     try {
       if (followed) {
         await axios.put(
-          `https://friendszone-31og.onrender.com/api/users/${user._id}/unfollow`,
+          `https://friendszone-04cf.onrender.com/api/users/${user._id}/unfollow`,
           {
             userId: currentUser._id,
           }
@@ -43,7 +43,7 @@ export default function Rightbar({ user }) {
       } else {
         console.log("not followed");
         await axios.put(
-          `https://friendszone-31og.onrender.com/api/users/${user._id}/follow`,
+          `https://friendszone-04cf.onrender.com/api/users/${user._id}/follow`,
           {
             userId: currentUser._id,
           }
