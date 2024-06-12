@@ -23,7 +23,7 @@ app.use("/images", express.static(path.join(__dirname, "public/images")));
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://friendszone-4etd.onrender.com",
   })
 );
 app.use(express.json());
